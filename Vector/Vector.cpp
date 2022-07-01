@@ -217,7 +217,7 @@ bool Vector::Equals(Vector& origin)
 
 int Vector::GetElementAt(int index)
 {
-    if (index < 0 || index > size)
+    if (index < 0 || index >= size)
         throw "Incorrect index!";
     return data[index];
 }
