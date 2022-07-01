@@ -93,22 +93,23 @@ void Vector::Insert(int value, int index)
 
 void Vector::RemoveByIndex(int index)
 {
-    if (index < 0 || index > size)
+    if (index < 0 || index >= size)
         throw "Incorrect index!";
-    data[index] = data[index + 1];
-    for (unsigned int i = index; i < size; i++)
+
+    for (unsigned int i = index; i <= size - 1; i++)
         data[i] = data[i + 1];
+
     size--;
 }
 
 void Vector::RemoveByValue(int value)
 { 
-    for (unsigned int i = 0; i < size; i++)
+    ffor (unsigned int i = 0; i < size; i++)
     {
-        if (data[i] == value)
+        if (data[i] == value) {
             RemoveByIndex(i);
-        else if (data[i + 1] == value)
-            RemoveByIndex(i + 1);
+            i = -1;
+        }
     }
 }
 
