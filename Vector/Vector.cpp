@@ -257,7 +257,7 @@ Vector& Vector::operator = (const Vector& original)
 
 int Vector::operator[](int index)
 {
-    if (index < 0 || index > size)
+    if (index < 0 || index >= size)
         throw "Incorrect index!";
     return data[index];
 }
