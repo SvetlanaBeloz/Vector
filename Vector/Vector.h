@@ -1,4 +1,6 @@
 #include <iostream>
+#include <algorithm>
+#pragma once
 
 class Vector
 {

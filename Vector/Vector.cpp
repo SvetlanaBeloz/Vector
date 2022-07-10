@@ -93,22 +93,23 @@ void Vector::Insert(int value, int index)
 
 void Vector::RemoveByIndex(int index)
 {
-    if (index < 0 || index > size)
+    if (index < 0 || index >= size)
         throw "Incorrect index!";
-    data[index] = data[index + 1];
-    for (unsigned int i = index; i < size; i++)
+
+    for (unsigned int i = index; i <= size - 1; i++)
         data[i] = data[i + 1];
+
     size--;
 }
 
 void Vector::RemoveByValue(int value)
-{ 
+{
     for (unsigned int i = 0; i < size; i++)
     {
-        if (data[i] == value)
+        if (data[i] == value) {
             RemoveByIndex(i);
-        else if (data[i + 1] == value)
-            RemoveByIndex(i + 1);
+            i = -1;
+        }
     }
 }
 
@@ -158,7 +159,7 @@ int Vector::LastIndexOf(int value)
 void Vector::Reverse()
 {
     for (unsigned int i = 0; i < size / 2; i++)
-        std::swap (data[i], data[size - 1 - i]);
+        std::swap(data[i], data[size - 1 - i]);
 }
 
 void Vector::SortAsc()
@@ -195,8 +196,8 @@ void Vector::Shuffle()
 
 void Vector::RandomFill(int size)
 {
-    this ->size = size;
-    this ->capacity = size;
+    this->size = size;
+    this->capacity = size;
     EnsureCapacity();
     for (unsigned int i = 0; i < size; i++)
         data[i] = rand() % 90 + 10;
@@ -216,7 +217,7 @@ bool Vector::Equals(Vector& origin)
 
 int Vector::GetElementAt(int index)
 {
-    if (index < 0 || index > size)
+    if (index < 0 || index >= size)
         throw "Incorrect index!";
     return data[index];
 }
@@ -280,4 +281,3 @@ std::ostream& operator << (std::ostream& os, const Vector& original)
         os << original.data[i] << " ";
     return os;
 }
-

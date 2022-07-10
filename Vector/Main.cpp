@@ -1,4 +1,6 @@
 #include "Vector.h"
+#include "Stack.h"
+
 
 int main()
 {
@@ -10,7 +12,7 @@ int main()
     v.Print();
     v.RemoveByIndex(5);
     v.Print();
-    v.RemoveByValue(67);
+    v.RemoveByValue(62);
     v.Print();
     v.PopFront();
     v.Print();
@@ -63,4 +65,41 @@ int main()
     std::cin >> e;
     e.Print();
     std::cout << e;
+
+    
+    Stack st;
+    while (!st.IsFull())
+        st.Push(rand() % 90 + 10);
+    st.Clear();
+    std::cout << st.GetCount() << std::endl;
+    if (st.IsFull())
+        std::cout << "ok!\n";
+    else std::cout << "no\n";
+    if (st.IsEmpty())
+        std::cout << "ok!\n";
+    else std::cout << "no\n";
+    while (!st.IsFull())
+        st.Push(rand() % 90 + 10);
+
+    std::cout << st.Peek() << std::endl;
+    st.Pop();
+    std::cout << st.Peek() << std::endl;
+    st.Pop();
+    std::cout << st.Peek() << std::endl;
+    st.Pop();
+    std::cout << st.Peek() << std::endl;
+    st.Pop();
+    std::cout << st.Peek() << std::endl;
+    st.Pop();
+    std::cout << st.Peek() << std::endl;
+    st.Pop();
+    std::cout << st.Peek() << std::endl;
+    st.Pop();
+    std::cout << st.Peek() << std::endl;
+    st.Pop();
+    std::cout << st.Peek() << std::endl;
+    st.Pop();
+    std::cout << st.Peek() << std::endl;
+    st.Pop();
+
 }
