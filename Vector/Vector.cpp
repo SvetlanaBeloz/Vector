@@ -104,7 +104,7 @@ void Vector::RemoveByIndex(int index)
 
 void Vector::RemoveByValue(int value)
 { 
-    ffor (unsigned int i = 0; i < size; i++)
+    for (unsigned int i = 0; i < size; i++)
     {
         if (data[i] == value) {
             RemoveByIndex(i);
