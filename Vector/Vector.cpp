@@ -1,4 +1,5 @@
 #include "Vector.h"
+#include "Stack.h"
 
 Vector::Vector() : Vector(10) {}
 Vector::Vector(unsigned int capacity)
@@ -104,7 +105,7 @@ void Vector::RemoveByIndex(int index)
 
 void Vector::RemoveByValue(int value)
 {
-    for (unsigned int i = 0; i < size; i++)
+    for(unsigned int i = 0; i < size; i++)
     {
         if (data[i] == value) {
             RemoveByIndex(i);
@@ -257,7 +258,7 @@ Vector& Vector::operator = (const Vector& original)
 
 int Vector::operator[](int index)
 {
-    if (index < 0 || index > size)
+    if (index < 0 || index >= size)
         throw "Incorrect index!";
     return data[index];
 }
